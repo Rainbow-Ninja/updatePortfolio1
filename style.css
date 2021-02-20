@@ -16,7 +16,7 @@ body {
     margin: 0;
 }
 
-#home, #about, #projects, #contact {
+#home, #about, #edu, #projects, #contact {
     background-color: #333;
     transform-origin: top left;
     transition: transform 0.5s linear;
@@ -25,7 +25,7 @@ body {
     margin: 0;
 }
 
-#home.show-nav, #about.show-nav, #projects.show-nav, #contact.show-nav {
+#home.show-nav, #about.show-nav, #edu.show-nav, #projects.show-nav, #contact.show-nav {
     transform: rotate(-20deg);
 }
 
@@ -45,7 +45,7 @@ body {
     transition: transform 0.5s linear;
 }
 
-#home.show-nav .circle, #about.show-nav .circle, #projects.show-nav .circle, #contact.show-nav .circle {
+#home.show-nav .circle, #about.show-nav .circle, #edu.show-nav .circle, #projects.show-nav .circle, #contact.show-nav .circle {
     transform: rotate(-70deg);
 }
 
@@ -74,14 +74,14 @@ body {
     transform-origin: top left;
 }
 
-#home.show-nav + nav li, #about.show-nav + nav li, #projects.show-nav + nav li, #contact.show-nav + nav li {
+#home.show-nav + nav li, #about.show-nav + nav li, #edu.show-nav + nav li, #projects.show-nav + nav li, #contact.show-nav + nav li {
     transform: translateX(0);
     transition-delay: 0.3s;
 }
 
 /* my name and "title" */
 #HomeHeading{
-    margin: 4vh 4vh 4vh 1vh;
+    margin: 0 4vh 4vh 1vh;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -115,12 +115,16 @@ body {
     }
   }
 
-#HomeHeading h1 {
+#HomeHeading h1, h1 {
     font-family: 'Akaya Kanadaka', cursive;
     color: #2c90fc;
     text-shadow: -5px -5px 5px #111, 0 0 0.5em #03269b;
     font-size: 2em;
     animation: slide-in-pop 2s 1 both;
+}
+
+h1 {
+    text-align: center;
 }
 
 @keyframes slide-in-pop {
@@ -158,7 +162,7 @@ nav {
     position: fixed;
     bottom: 40px;
     left: 0;
-    z-index: 100;
+    z-index: 10;
 }
 
 nav ul {
@@ -193,7 +197,11 @@ nav ul a + a + a li {
 nav ul a + a + a + a li {
     margin-left: 50px;
     transform: translateX(-250%);
+}
 
+nav ul a + a + a + a + a li {
+    margin-left: 70px;
+    transform: translateX(-300%);
 }
 
 .content img {
@@ -221,22 +229,7 @@ nav ul a + a + a + a li {
     justify-content: space-between;
 }
 
-.content h1 {
-    margin: 0;
-}
-
-.content small {
-    color: #555;
-    font-style: italic;
-}
-
-.content p {
-    color: #333;
-    line-height: 1.5;
-}
-
-#about, #projects, #contact {
-    background-color: blue;
+#about, #projects, #contact, #edu {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -245,12 +238,114 @@ nav ul a + a + a + a li {
     right: 0;
     bottom: 0;
     z-index: -1;
+    color: #fff;
+    opacity: 0;
 }
+
+
+/* About Page */
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: 100% cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 15vh;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    flex: 1;
+    margin: 5px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 18px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    margin: 0;
+    opacity: 0;
+    color: rgb(13, 13, 63);
+    text-shadow: 0 0 1px #0d0f14, 0 0 5px #b7c3e9;
+}
+
+.panel.active {
+    flex: 6;
+    background-size: 100% auto;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.5s;
+}
+
+section {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#about .container {
+    
+}
+
+/* edu/wk */
+.edHeading {
+    position: relative;
+    /* width: 20%; */
+}
+
+#edu img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    left: 64%;
+    top: -20%;
+    transform: rotate(15deg);
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 
 #projects {
     background-color: purple;
 }
 
-#contact {
-    background-color: yellow;
+.contacts {
+    background-color: rgba(125, 125, 125, 0.5);
+    width: 80%;
+    padding: 15%;
+    margin: 20% 10%;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to bottom right, var(--rainbow));
+    border-image-slice: 5;
+}
+
+.contacts a {
+    color: #fff;
+    font-size: 24px;
+}
+
+.fa-twitter-square {
+    color:  rgba(29,161,242,1.00);
+}
+
+.fa-github-square {
+    color: #333;
+}
+
+.fa-linkedin {
+    color: #2877b5;
+}
+
+.fa-codepen {
+    color: #222;
 }
