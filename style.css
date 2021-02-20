@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Shippori+Mincho&display=swap');
+
+:root{
+    /* --rainbow:  rgba(255, 0, 0, 1) 10%, rgba(255, 165, 0, 1), rgba(252, 252, 4, 1), rgba(17, 253, 5, 1), rgba(0, 0, 255, 1), rgba(128, 0, 128, 1); */
+    --rainbow: #ff0000 0%, #fd1892 17%, #b827fc 34%, #2c90fc 51%, #b8fd33 68%, #f1f506 85%, #feb837 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Shippori Mincho', sans-serif;
+    background-color: #222;
+    color: #222;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.home {
+    background-color: #333;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.home.show-nav {
+    transform: rotate(-20deg);
+}
+
+.circle-container {
+    position: fixed;
+    top: -75px;
+    left: -75px;
+}
+
+.circle {
+    background-color: rgb(248, 59, 59); 
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.home.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+.circle button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.home.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+/* my name and "title" */
+#HomeHeading{
+    margin: 4vh 4vh 4vh 1vh;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 30%;
+}
+
+#HomeHeading h1, h3{
+    color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+#HomeHeading h3{
+    animation: slide-in 1s 1;
+}
+
+#HomeHeading h1{
+    animation: slide-in-pop 1s 1;
+}
+
+@keyframes slide-in {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+#HomeHeading h1 {
+    font-family: 'Akaya Kanadaka', cursive;
+    color: #2c90fc;
+    text-shadow: -5px -5px 5px #111, 0 0 0.5em #03269b;
+    font-size: 2em;
+    animation: slide-in-pop 2s 1 both;
+}
+
+@keyframes slide-in-pop {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    50% {  
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    85% {  
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    90% {  
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      /* opacity: 1; */
+    }
+  }
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+    font-size: 20px;
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+
+}
+
+nav ul li + li + li + li {
+    margin-left: 50px;
+    transform: translateX(-250%);
+
+}
+
+.content img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.content #circle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom right, var(--rainbow));
+  }
+
+.content {
+    max-width: 500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.5;
+}
+
+.about {
+    background-color: blue;
+}
+
+.projects {
+    background-color: blue;
+}
+
+.contact {
+    background-color: blue;
+}
