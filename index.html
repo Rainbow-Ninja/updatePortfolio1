@@ -8,7 +8,7 @@
     <title>Jo Dunham</title>
 </head>
 <body>
-    <div class="home">
+    <section id="home">
         <div class="circle-container">
             <div class="circle">
                 <button id="close">
@@ -30,16 +30,16 @@
                 <h3>Creative Designer</h3>
             </div>
         </div>
-    </div>
-    <div class="about"></div>
-    <div class="projects"></div>
-    <div class="contact"></div>
+    </section>
+    <section id="about">About</section>
+    <section id="projects">Projects</section>
+    <section id="contact">Contact Me</section>
     <nav>
         <ul>
-            <li><i class="fas fa-home"></i> Home</li>
-            <li><i class="fas fa-user-alt"></i> About</li>
-            <li><i class="fas fa-laptop-code"></i> Projects</li>
-            <li><i class="fas fa-envelope"></i> Contact</li>
+            <a href="#home" onclick="focusHome()"><li><i class="fas fa-home"></i> Home</li></a>
+            <a href="#about" onclick="focusAbout()"><li><i class="fas fa-user-alt"></i> About</li></a>
+            <a href="#projects" onclick="focusProjects()"><li><i class="fas fa-laptop-code"></i> Projects</li></a>
+            <a href="#contact" onclick="focusContact()"><li><i class="fas fa-envelope"></i> Contact</li></a>
         </ul>
     </nav>
     <script src="script.js"></script>

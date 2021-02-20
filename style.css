@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Shippori+Mincho&display=swap');
 
 :root{
-    /* --rainbow:  rgba(255, 0, 0, 1) 10%, rgba(255, 165, 0, 1), rgba(252, 252, 4, 1), rgba(17, 253, 5, 1), rgba(0, 0, 255, 1), rgba(128, 0, 128, 1); */
     --rainbow: #ff0000 0%, #fd1892 17%, #b827fc 34%, #2c90fc 51%, #b8fd33 68%, #f1f506 85%, #feb837 100%;
 }
 
@@ -17,7 +16,7 @@ body {
     margin: 0;
 }
 
-.home {
+#home, #about, #projects, #contact {
     background-color: #333;
     transform-origin: top left;
     transition: transform 0.5s linear;
@@ -26,7 +25,7 @@ body {
     margin: 0;
 }
 
-.home.show-nav {
+#home.show-nav, #about.show-nav, #projects.show-nav, #contact.show-nav {
     transform: rotate(-20deg);
 }
 
@@ -34,6 +33,7 @@ body {
     position: fixed;
     top: -75px;
     left: -75px;
+    z-index: 10000;
 }
 
 .circle {
@@ -45,7 +45,7 @@ body {
     transition: transform 0.5s linear;
 }
 
-.home.show-nav .circle {
+#home.show-nav .circle, #about.show-nav .circle, #projects.show-nav .circle, #contact.show-nav .circle {
     transform: rotate(-70deg);
 }
 
@@ -74,7 +74,7 @@ body {
     transform-origin: top left;
 }
 
-.home.show-nav + nav li {
+#home.show-nav + nav li, #about.show-nav + nav li, #projects.show-nav + nav li, #contact.show-nav + nav li {
     transform: translateX(0);
     transition-delay: 0.3s;
 }
@@ -150,6 +150,10 @@ body {
     }
   }
 
+a {
+    text-decoration: none;
+}
+
 nav {
     position: fixed;
     bottom: 40px;
@@ -174,19 +178,19 @@ nav ul li i {
     font-size: 20px;
 }
 
-nav ul li + li {
+nav ul a + a li {
     margin-left: 15px;
     transform: translateX(-150%);
 
 }
 
-nav ul li + li + li {
+nav ul a + a + a li {
     margin-left: 30px;
     transform: translateX(-200%);
 
 }
 
-nav ul li + li + li + li {
+nav ul a + a + a + a li {
     margin-left: 50px;
     transform: translateX(-250%);
 
@@ -231,14 +235,22 @@ nav ul li + li + li + li {
     line-height: 1.5;
 }
 
-.about {
+#about, #projects, #contact {
     background-color: blue;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
-.projects {
+#projects {
     background-color: purple;
 }
 
-.contact {
+#contact {
     background-color: yellow;
 }
