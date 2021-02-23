@@ -5,6 +5,7 @@ const aboutPage = document.querySelector('#about');
 const projectPage = document.querySelector('#projects');
 const contactPage = document.querySelector('#contact');
 
+
 open.addEventListener('click', () => {
     const sectOpen = document.querySelectorAll("section");
     sectOpen.forEach(el => el.classList.add('show-nav'));
@@ -15,16 +16,17 @@ close.addEventListener('click', () => {
     sectClose.forEach(el => el.classList.remove('show-nav'));
 });
 
-
 function focusHome(){
     const sectIdx = document.querySelectorAll("section");
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        // el.style.display = "none";
         el.classList.remove('show-nav');
     });
     document.getElementById('home').setAttribute(
         "style", "zIndex: 100; opacity: 1;");
+    let blip = document.getElementById('home');
 }
 
 function focusAbout(){
@@ -32,6 +34,7 @@ function focusAbout(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        // el.style.display = "none";
         el.classList.remove('show-nav');
     });
     document.getElementById('about').setAttribute(
@@ -43,6 +46,7 @@ function focusEd(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        // el.style.display = "none";
         el.classList.remove('show-nav');
     });
     document.getElementById('edu').setAttribute(
@@ -54,6 +58,7 @@ function focusProjects(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        // el.style.display = "none";
         el.classList.remove('show-nav');
     });
     document.getElementById('projects').setAttribute(
@@ -65,6 +70,7 @@ function focusContact(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        // el.style.display = "none";
         el.classList.remove('show-nav');
     });
     document.getElementById('contact').setAttribute(
@@ -87,3 +93,4 @@ function removeActiveClasses() {
         panel.classList.remove('active');
     })
 }
+

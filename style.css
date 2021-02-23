@@ -23,7 +23,9 @@ body {
     width: 100vw;
     min-height: 100vh;
     margin: 0;
+    /* display: none; */
 }
+
 
 #home.show-nav, #about.show-nav, #edu.show-nav, #projects.show-nav, #contact.show-nav {
     transform: rotate(-20deg);
@@ -57,7 +59,8 @@ body {
     background: transparent;
     border: 0;
     font-size: 26px;
-    color: #fff
+    color: #fff;
+    z-index: 10000;
 }
 
 .circle button:focus {
@@ -79,7 +82,7 @@ body {
     transition-delay: 0.3s;
 }
 
-/* my name and "title" */
+/* my name and title */
 #HomeHeading{
     margin: 0 4vh 4vh 1vh;
     text-align: center;
@@ -120,8 +123,12 @@ body {
     color: #2c90fc;
     text-shadow: -5px -5px 5px #111, 0 0 0.5em #03269b;
     font-size: 2em;
+}    
+
+#HomeHeading h1 {
     animation: slide-in-pop 2s 1 both;
 }
+
 
 h1 {
     text-align: center;
@@ -231,8 +238,10 @@ nav ul a + a + a + a + a li {
 
 #about, #projects, #contact, #edu {
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    min-height: 100%;
     position: absolute;
+    /* display: none; */
     top: 0;
     left: 0;
     right: 0;
@@ -256,7 +265,7 @@ nav ul a + a + a + a + a li {
     background-repeat: no-repeat;
     height: 15vh;
     border-radius: 20px;
-    color: white;
+    color: #fff;
     cursor: pointer;
     flex: 1;
     margin: 5px;
@@ -290,14 +299,10 @@ section {
     padding: 10px;
 }
 
-#about .container {
-    
-}
 
 /* edu/wk */
 .edHeading {
     position: relative;
-    /* width: 20%; */
 }
 
 #edu img {
@@ -316,11 +321,24 @@ p {
 
 
 #projects {
-    background-color: purple;
+    
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card img{
+    max-width:100%;
+}
+
+.card {
+    max-width: 90vw;
 }
 
 .contacts {
-    background-color: rgba(125, 125, 125, 0.5);
+    background-color: rgba(100, 99, 99, 0.5);
     width: 80%;
     padding: 15%;
     margin: 20% 10%;
@@ -332,6 +350,7 @@ p {
 .contacts a {
     color: #fff;
     font-size: 24px;
+    text-shadow: -5px -5px 5px #111, 0 0 0.5em #03269b;
 }
 
 .fa-twitter-square {
