@@ -21,10 +21,12 @@ function focusHome(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
+        el.classList.add('hidden');
         // el.style.display = "none";
         // el.style.transform = "translateX(100vw)"
         el.classList.remove('show-nav');
     });
+    document.getElementById('home').classList.remove('hidden');
     document.getElementById('home').setAttribute(
         "style", "zIndex: 100; opacity: 1;");
 }
@@ -34,12 +36,12 @@ function focusAbout(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
-        el.classList.add('.hidden');
+        el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
+    document.getElementById('about').classList.remove('hidden');
     document.getElementById('about').setAttribute(
         "style", "zIndex: 100; opacity: 1;")
-        document.getElementById('about').removeClass('.hidden');
 }
 
 function focusEd(){
@@ -47,12 +49,12 @@ function focusEd(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
-        el.classList.add('.hidden');
+        el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
+    document.getElementById('edu').classList.remove('hidden');
     document.getElementById('edu').setAttribute(
         "style", "zIndex: 100; opacity: 1;");
-    document.getElementById('edu').removeClass('.hidden');
 }
 
 function focusProjects(){
@@ -60,12 +62,12 @@ function focusProjects(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
-        el.classList.add('.hidden');
+        el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
+    document.getElementById('projects').classList.remove('hidden');
     document.getElementById('projects').setAttribute(
         "style", "zIndex: 100; opacity: 1;");
-    document.getElementById('projects').removeClass('.hidden');
 }
 
 function focusContact(){
@@ -73,12 +75,12 @@ function focusContact(){
     sectIdx.forEach(el => {
         el.style.zIndex = -1;
         el.style.opacity = 0;
-        el.classList.add('.hidden');
+        el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
+    document.getElementById('contact').classList.remove('hidden');
     document.getElementById('contact').setAttribute(
         "style", "zIndex: 100; opacity: 1;");
-        document.getElementById('contact').removeClass('.hidden');
 }
 
 

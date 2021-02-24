@@ -400,7 +400,7 @@ h3.labels {
     border-radius: 5px;
 }
 
-.menu-wrapper {
+.carousel-wrapper {
     position: relative;
     max-width: 100vw;
     height: 160px;
@@ -420,7 +420,7 @@ h3.labels {
 	-webkit-overflow-scrolling: touch;
 }
 
-#carousel .blip {
+#carousel .image {
     display: inline-block;
 }
 
