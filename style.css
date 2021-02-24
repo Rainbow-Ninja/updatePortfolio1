@@ -12,7 +12,7 @@ body {
     font-family: 'Shippori Mincho', sans-serif;
     background-color: #222;
     color: #222;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin: 0;
 }
 
@@ -24,6 +24,11 @@ body {
     min-height: 100vh;
     margin: 0;
     /* display: none; */
+    /* transform: translateX(100vw); */
+}
+
+#home {
+    transform: translateX(0);
 }
 
 
@@ -206,11 +211,6 @@ nav ul a + a + a + a li {
     transform: translateX(-250%);
 }
 
-nav ul a + a + a + a + a li {
-    margin-left: 70px;
-    transform: translateX(-300%);
-}
-
 .content img {
     height: 100%;
     width: 100%;
@@ -389,8 +389,23 @@ p {
     height: 160px;
     background-color: #444;
     overflow-x: auto;
-    white-space:nowrap;
+    white-space: nowrap;
     padding: 5px;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+.slide {
+    display: flex;
+    position: relative;
+}
+
+h3.labels {
+    position: relative;
+    top: -35px;
+    left: 20px;
+    text-shadow: 2px 2px 4px navy;
+    font-size: 1.4em;
 }
 
 .slide img {
@@ -403,4 +418,5 @@ p {
 
 #carousel .slide {
     display: inline-block;
+    touch-action: pan-x;
 }
