@@ -98,36 +98,74 @@ function focusContact(){
 /*
   creates a closure that does not pollute global space
 */
-// (function(el) {
-//     // so this variable is available only within here
-//     var minDeltaY;
-//     // not the recommended way to add events, but the easiest
-//     el.onwheel = function(e) {
-//       // we want to eliminate vertical scrolling
-//       if (e.deltaY) {
-//         // normalize
-//         if (minDeltaY > Math.abs(e.deltaY) || !minDeltaY) {
-//           minDeltaY = Math.abs(e.deltaY);
-//         }
-//         // scroll a decent amount
-//         el.scrollLeft += (e.deltaY / minDeltaY)
-//           * ((el.scrollWidth - el.clientWidth) * 0.05);
-//         // do not let other wheel events to fire
-//         e.stopPropagation();
-//         e.cancelBubble = true; // same for old IE
-//         // and we don't want the default action either
-//         e.preventDefault();
-//         e.returnValue = false; // same for old IE
-//       }
-//     }
-//     // support browsers that do not support DOM Level 3 wheel
-//     el.onmousewheel = function(e) {
-//       // old Internet Explorer
-//       if (!e) e = window.event;
-//       // we normalize the value so no need to guess how to convert
-//       e.deltaY = -e.wheelDelta;
-//       // we have done enough
-//       el.onwheel(e);
-//     }
-//   })(document.getElementById('carousel'));
-//   // ^----- we pass "el" to the above function down here!
+// 
+var scrollDuration = 300;
+// paddles
+var leftPaddle = document.getElementsByClassName('left-paddle');
+var rightPaddle = document.getElementsByClassName('right-paddle');
+// get items dimensions
+var itemsLength = $('.slide').length;
+var itemSize = $('.slide').outerWidth(true);
+// get some relevant size for the paddle triggering point
+var paddleMargin = 20;
+
+// get wrapper width
+var getMenuWrapperSize = function() {
+	return $('.menu-wrapper').outerWidth();
+}
+var menuWrapperSize = getMenuWrapperSize();
+// the wrapper is responsive
+$(window).on('resize', function() {
+	menuWrapperSize = getMenuWrapperSize();
+});
+// size of the visible part of the menu is equal as the wrapper size 
+var menuVisibleSize = menuWrapperSize;
+
+// get total width of all menu items
+var getMenuSize = function() {
+	return itemsLength * itemSize;
+};
+var menuSize = getMenuSize();
+// get how much of menu is invisible
+var menuInvisibleSize = menuSize - menuWrapperSize;
+
+// get how much have we scrolled to the left
+var getMenuPosition = function() {
+	return $('.carousel').scrollLeft();
+};
+
+// finally, what happens when we are actually scrolling the menu
+$('.carousel').on('scroll', function() {
+
+	// get how much of menu is invisible
+	menuInvisibleSize = menuSize - menuWrapperSize;
+	// get how much have we scrolled so far
+	var menuPosition = getMenuPosition();
+
+	var menuEndOffset = menuInvisibleSize - paddleMargin;
+
+	// show & hide the paddles 
+	// depending on scroll position
+	if (menuPosition <= paddleMargin) {
+		$(leftPaddle).addClass('hidden');
+		$(rightPaddle).removeClass('hidden');
+	} else if (menuPosition < menuEndOffset) {
+		// show both paddles in the middle
+		$(leftPaddle).removeClass('hidden');
+		$(rightPaddle).removeClass('hidden');
+	} else if (menuPosition >= menuEndOffset) {
+		$(leftPaddle).removeClass('hidden');
+		$(rightPaddle).addClass('hidden');
+    }
+});
+
+
+// scroll to left
+$(rightPaddle).on('click', function() {
+	$('.menu').animate( { scrollLeft: menuInvisibleSize}, scrollDuration);
+});
+
+// scroll to right
+$(leftPaddle).on('click', function() {
+	$('.menu').animate( { scrollLeft: '0' }, scrollDuration);
+});
