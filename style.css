@@ -36,6 +36,10 @@ body {
     transform: rotate(-20deg);
 }
 
+#home.undo, #about.undo {
+    transform: rotate(0);
+}
+
 .circle-container {
     position: fixed;
     top: -75px;
@@ -244,7 +248,6 @@ nav ul a + a + a + a li {
     height: fit-content;
     min-height: 100%;
     position: absolute;
-    /* display: none; */
     top: 0;
     left: 0;
     right: 0;
@@ -320,11 +323,6 @@ section {
 p {
     text-align: justify;
     text-justify: inter-word;
-}
-
-
-#projects {
-    
 }
 
 .cards {
@@ -428,11 +426,6 @@ h3.labels {
     display: inline-block;
 }
 
-
-/* #carousel .slide {
-    display: inline-block;
-    touch-action: pan-x;
-} */
 
 .paddle {
 	position: absolute;

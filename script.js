@@ -2,8 +2,8 @@ const open = document.getElementById('open');
 const close = document.getElementById('close');
 const homePage = document.querySelector('#home');
 const aboutPage = document.querySelector('#about');
-const projectPage = document.querySelector('#projects');
-const contactPage = document.querySelector('#contact');
+const projPage = document.querySelector('#projects');
+const contPage = document.querySelector('#contact');
 
 
 open.addEventListener('click', () => {
@@ -26,9 +26,10 @@ function focusHome(){
         // el.style.transform = "translateX(100vw)"
         el.classList.remove('show-nav');
     });
-    document.getElementById('home').classList.remove('hidden');
-    document.getElementById('home').setAttribute(
-        "style", "zIndex: 100; opacity: 1;");
+    // document.getElementById('home').classList.remove('hidden');
+    homePage.classList.remove('hidden');
+    homePage.classList.add('undo');
+    homePage.setAttribute("style", "zIndex: 100; opacity: 1;");
 }
 
 function focusAbout(){
@@ -39,22 +40,10 @@ function focusAbout(){
         el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
-    document.getElementById('about').classList.remove('hidden');
-    document.getElementById('about').setAttribute(
-        "style", "zIndex: 100; opacity: 1;")
-}
-
-function focusEd(){
-    const sectIdx = document.querySelectorAll("section");
-    sectIdx.forEach(el => {
-        el.style.zIndex = -1;
-        el.style.opacity = 0;
-        el.classList.add('hidden');
-        el.classList.remove('show-nav');
-    });
-    document.getElementById('edu').classList.remove('hidden');
-    document.getElementById('edu').setAttribute(
-        "style", "zIndex: 100; opacity: 1;");
+    aboutPage.classList.remove('hidden');
+    aboutPage.classList.add('show-nav');
+    aboutPage.classList.add('undo');
+    aboutPage.setAttribute("style", "zIndex: 100; opacity: 1; display: ;")
 }
 
 function focusProjects(){
@@ -65,9 +54,8 @@ function focusProjects(){
         el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
-    document.getElementById('projects').classList.remove('hidden');
-    document.getElementById('projects').setAttribute(
-        "style", "zIndex: 100; opacity: 1;");
+    projPage.classList.remove('hidden');
+    projPage.setAttribute("style", "zIndex: 100; opacity: 1;");
 }
 
 function focusContact(){
@@ -78,32 +66,11 @@ function focusContact(){
         el.classList.add('hidden');
         el.classList.remove('show-nav');
     });
-    document.getElementById('contact').classList.remove('hidden');
-    document.getElementById('contact').setAttribute(
-        "style", "zIndex: 100; opacity: 1;");
+    contPage.classList.remove('hidden');
+    contPage.setAttribute("style", "zIndex: 100; opacity: 1;");
 }
 
-
-// expanding cards
-// const panels = document.querySelectorAll('.panel')
-
-// panels.forEach(panel => {
-//     panel.addEventListener('click', () => {
-//         removeActiveClasses();
-//         panel.classList.add('active');
-//     })
-// })
-
-// function removeActiveClasses() {
-//     panels.forEach(panel => {
-//         panel.classList.remove('active');
-//     })
-// }
-
-/*
-  creates a closure that does not pollute global space
-*/
-// 
+// scrollypics ----------------------------------------------
 var scrollDuration = 300;
 // paddles
 var leftPaddle = document.getElementsByClassName('left-paddle');
