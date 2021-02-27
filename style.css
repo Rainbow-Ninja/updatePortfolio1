@@ -346,6 +346,10 @@ p {
     font-size: 1.2em;
 }
 
+.card p {
+    text-align: center;
+}
+
 .card .stack {
     color: #2c90fc;
     text-shadow: -2px -2px 2px #111, 0 0 0.5em #03269b;
